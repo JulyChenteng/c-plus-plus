@@ -1,0 +1,6 @@
+﻿  test.cpp
+d:\notes\cc++\多线程\threadtest\threadtest\syncqueue.h(93): warning C4018: “>=”: 有符号/无符号不匹配
+          d:\notes\cc++\多线程\threadtest\threadtest\syncqueue.h(92): 编译类 模板 成员函数“bool SyncQueue<ThreadPool::Task>::NotFull(void) const”时
+          d:\notes\cc++\多线程\threadtest\threadtest\syncqueue.h(111): 参见对正在编译的函数 模板 实例化“bool SyncQueue<ThreadPool::Task>::NotFull(void) const”的引用
+          d:\notes\cc++\多线程\threadtest\threadtest\threadpool.h(83): 参见对正在编译的类 模板 实例化“SyncQueue<ThreadPool::Task>”的引用
+  ThreadTest.vcxproj -> D:\notes\CC++\多线程\ThreadTest\Debug\ThreadTest.exe

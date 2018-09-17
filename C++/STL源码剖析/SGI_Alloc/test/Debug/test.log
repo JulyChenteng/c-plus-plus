@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\administrator\desktop\test\test\stl_alloc.h(25): warning C4005: “_THROW_BAD_ALLOC”: 宏重定义
+          d:\ide\visual studio 2013\vc\include\yvals.h(825) : 参见“_THROW_BAD_ALLOC”的前一个定义
+  test.vcxproj -> C:\Users\Administrator\Desktop\test\Debug\test.exe
