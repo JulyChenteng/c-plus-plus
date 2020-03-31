@@ -1,2 +1,3 @@
-**Variadic Templates —— 可变参数模板**
-**Rvalue reference —— 右值引用**
+**dm00.cpp —— Variadic Templates —— 可变长参数模板**
+**dm01.cpp —— Rvalue reference —— 右值引用、std::move、std::forward**
+****
