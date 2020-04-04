@@ -14,6 +14,5 @@ ThreadTest ——基于c++11特性实现的半同步/半异步线程池
 ThreadPool ——VC下的线程池实现
 
 dm01.cpp —— C++正则表达式的简单测试文件
-dm02.cpp —— 类型转换 reinterpret_cast/dynamic_cast/static_cast/const_cast/typeid
-
-
+dm02.cpp —— 类型转换 reinterpret_cast/dynamic_cast/static_cast/const_cast
+dm03.cpp —— RTTI 运行时类型识别 typeid/dynamic_cast/typeinfo

@@ -38,9 +38,6 @@ public:
 
 * const_cast <new_type> (expression)
   可以对常量的const属性进行设置或取消操作
-
-* typeid(expression)
-* 检查表达式的类型，返回一个类型为type_info的常量对象指针，这种类型定义在标准头文件#include<typeinfo>中。这种返回值可以用操作符 == 和 != 来互相进行比较，也可以用来通过name()函数获得一个描述数据类型或类名称的字符串。
 *****************************************************************************************/
 
 int main()
@@ -72,13 +69,6 @@ int main()
     //CBase *pBase4 = pBase3;		// 编译报错,无法转换
     CBase *pBase4 = const_cast<CBase*>(pBase3);
     cout << pBase4->m_x << endl;	// 5
-    
-    //typid
-    if (typeid(pBase) == typeid(pBase2))
-    {
-      cout << "pBase is: " << typeid(pBase).name() << endl;
-      cout << "pBase2 is: " << typeid(pBase2).name() << endl;
-    }
 
     delete pBase;
     pBase = NULL;
