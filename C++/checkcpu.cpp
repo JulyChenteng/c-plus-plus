@@ -16,7 +16,7 @@ int main()
 {
 	if (checkCPU() == true)
 	{
-		printf("Little-Endian！");	
+		printf("Little-Endian！\n");	
 	}
 	
 	return 0;
