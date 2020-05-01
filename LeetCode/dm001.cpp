@@ -54,6 +54,7 @@ int main()
         prev->next = pNode;
         prev = prev->next;
     }
+    prev->next = NULL;
 
     prev = l2;
     for (int i = 0; i < ivec2.size(); i++)
@@ -62,6 +63,7 @@ int main()
         prev->next = pNode;
         prev = prev->next;
     }
+    prev->next = NULL;
 
     prev = l1->next;
     for (; prev != NULL; prev = prev->next)
