@@ -12,32 +12,49 @@ struct ListNode {
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode l3 = ListNode(-1), *pNode = &l3;
+        ListNode *l3 = l1, *pNode = l1;
         ListNode *pTmpNode1 = l1, *pTmpNode2 = l2; 
 
+        l3 = pNode;
         if (l1 == NULL || l2 == NULL) 
         {
             return l1 != NULL ? l1 : l2;
         }
 
-        while (pTmpNode1 && pTmpNode2)
+        while (pTmpNode1 &&pTmpNode2)
         {
             if (pTmpNode1->val <= pTmpNode2->val)
             {
-                pNode->next = pTmpNode1;
+                pNode = pTmpNode1;
                 pTmpNode1 = pTmpNode1->next;
+                continue;
             }
-            else
+            
+            pNode->next = pTmpNode2;
+            pNode = pNode->next;
+            pTmpNode2 = pTmpNode2->next;
+            while(pTmpNode2 && pTmpNode1)
             {
-                pNode->next = pTmpNode2;
-                pTmpNode2 = pTmpNode2->next;
+                if (pTmpNode2->val <= pTmpNode1->val)
+                {
+                    pNode = pTmpNode2;
+                    pTmpNode2 = pTmpNode2->next;
+                    continue;
+                }
+
+                break;
+            }
+
+            pNode->next = pTmpNode1;
+            if (pTmpNode2 == NULL)
+            {
+                break;
             }
             pNode = pNode->next;
+            pTmpNode1 = pTmpNode1->next;
         }
 
-        pNode->next = (pTmpNode1 == NULL) ? pTmpNode2 : pTmpNode1;
-
-        return l3.next;
+        return l3;
     }
 };
 
