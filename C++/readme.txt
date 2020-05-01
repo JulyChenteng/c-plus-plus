@@ -16,3 +16,4 @@ ThreadPool ——VC下的线程池实现
 dm01.cpp —— C++正则表达式的简单测试文件
 dm02.cpp —— 类型转换 reinterpret_cast/dynamic_cast/static_cast/const_cast
 dm03.cpp —— RTTI 运行时类型识别 typeid/dynamic_cast/typeinfo
+dm04.cpp —— C++ 异常处理
