@@ -86,19 +86,14 @@ int main()
     }
     cout << endl;
 
-    while (l1)
+    while (l3)
     {
-        pNode = l1; 
-        l1 = l1->next;
+        pNode = l3; 
+        l3 = l3->next;
         delete pNode;
     }
-
-    while (l2)
-    {
-        pNode = l2; 
-        l2 = l2->next;
-        delete pNode;
-    }
+    delete l1;
+    delete l2;
 
     return 0;
 }
