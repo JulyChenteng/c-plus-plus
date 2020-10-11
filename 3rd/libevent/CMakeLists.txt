@@ -11,9 +11,9 @@ project ("demo")
 # TODO: 如有需要，请添加测试并安装目标。
 IF (CMAKE_SYSTEM_NAME MATCHES "Windows")
 	# 添加头文件目录
-	include_directories(../../include)
+	include_directories(F:/Codebase/libevent/out/libvent/include)
 	# 添加需要链接的库文件目录
-	link_directories(../../lib)
+	link_directories(F:/Codebase/libevent/out/libvent/lib)
 ELSEIF (CMAKE_SYSTEM_NAME MATCHES "Linux")
 	link_directories(/usr/local/lib /usr/local/lib64)
 ENDIF (CMAKE_SYSTEM_NAME MATCHES "Windows")
