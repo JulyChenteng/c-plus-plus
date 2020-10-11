@@ -25,7 +25,7 @@ int main()
 	//! 初始化windows socket库
 	WSADATA wsa;
 	WSAStartup(MAKEWORD(2, 2), &wsa);
-#elif
+#else
 	//! 忽略管道信号（发送数据给已关闭的socket）
 	if (signal(SIGPIPE, SIG_IGN) == SIG_ERR)
 		return 1;
