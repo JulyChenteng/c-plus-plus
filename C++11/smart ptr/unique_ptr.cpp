@@ -51,8 +51,8 @@ class unique_ptr {
 
 int main() {
   unique_ptr<shape> ptr1{create_shape(shape_type::circle)};
-  unique_ptr<shape> ptr2{
-      ptr1};  // 由于带模板的移动构造函数引发编译器会默认生成拷贝构造
+  // 由于带模板的移动构造函数引发编译器会默认生成拷贝构造
+  unique_ptr<shape> ptr2{ptr1};
 
   if (ptr1.get() != nullptr)  // bitwise copy 此时ptr1不为NULL
     ptr2.get()->print();

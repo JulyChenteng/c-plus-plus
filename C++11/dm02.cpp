@@ -3,8 +3,8 @@
 
 //! 万能引用
 #if 0
-#include <iostream>
 #include <boost/type_index.hpp>
+#include <iostream>
 
 using namespace std;
 using boost::typeindex::type_id_with_cvr;  
@@ -33,12 +33,12 @@ int main()
 
 /*
 output:
-	T type: int&
-	param type:int&
-	T type: int&
-	param type:int&
-	T type: int
-	param type:int&&
+        T type: int&
+        param type:int&
+        T type: int&
+        param type:int&
+        T type: int
+        param type:int&&
 */
 
 //! 完美转发
@@ -102,34 +102,35 @@ int main() {
     cout << "pass by reference: " << endl;
     AcceptRef(ReturnRvalue()); //应该只调用一次拷贝构造函数
 }
-#endif 
+#endif
 
-//!g++ dm02.cpp -I "F:\\Open Source\\boost_1_73_0"
+//! g++ dm02.cpp -I "F:\\Open Source\\boost_1_73_0"
 /*
 output:
-	pass by value:
-	normal
-	pass by reference:
-	normal
+        pass by value:
+        normal
+        pass by reference:
+        normal
 */
 //! g++ dm02.cpp -I "F:\\Open Source\\boost_1_73_0" -fno-elide-constructors
-//! 去除编译器优化(RVO/NRVO, RVO, Return Value Optimization 返回值优化，或者NRVO， Named Return Value Optimization)
+//! 去除编译器优化(RVO/NRVO, RVO, Return Value Optimization
+//! 返回值优化，或者NRVO， Named Return Value Optimization)
 /*
 output:
-	pass by value:
-	normal
-	Copied
-	Copied
-	pass by reference:
-	normal
-	Copied
+        pass by value:
+        normal
+        Copied
+        Copied
+        pass by reference:
+        normal
+        Copied
 */
 
 #if 0
 
 #include <iostream>
-#include <type_traits>
 #include <string>
+#include <type_traits>
 using namespace std;
 
 template<typename T>
@@ -175,46 +176,45 @@ output:
 
 #endif
 
-#if 0
-
-#include <iostream>
+#if 1
 #include <cstring>
+#include <iostream>
 #include <vector>
 using namespace std;
 
 class A {
-public:
-    A(int i){
-        cout << "A()" << endl;
-        str = to_string(i);
-    }
-    ~A(){}
-    A(const A& other): str(other.str){
-        cout << "A&" << endl;
-    }
+ public:
+  A(int i) {
+    cout << "A default" << endl;
+    str = i;
+  }
 
-public:
-    string str;
+  ~A() {}
+  A(const A& other) : str(other.str) { cout << "A&" << endl; }
+
+ public:
+  int str;
 };
 
-int main()
-{
-    vector<A> vec;
-    vec.reserve(10);
-    for(int i=0;i<10;i++){
-		//vec.push_back(A(i)); //调用了10次拷贝构造函数
-        vec.emplace_back(A(i));  //一次拷贝构造函数都没有调用过
-    }
-    for(int i=0;i<10;i++)
-        cout << vec[i].str << endl;
+int main() {
+  vector<A> vec;
+  vec.reserve(10);
+  for (int i = 0; i < 3; i++) {
+    // A a(i);      // 三次构造
+    //vec.push_back(i);     // push前调用了3次构造函数,然后放入容器时placement new会再产生3次拷贝构造 右值引用
+    vec.emplace_back(i);    // 一次拷贝构造函数都没有调用过，只有在placement new的时候产生三次构造
+    // vec.emplace_back(A(i));  // 三次构造，三次拷贝构造
+    // vec.push_back(A(i));     // 三次构造，三次拷贝构造  右值引用
+    // vec.emplace_back(a);     // 三次拷贝构造  
+    // vec.push_back(a);        // 三次拷贝构造           左值引用
+  }
 }
 
 #endif
 
-
-#if 1 
-#include <iostream>
+#if 0
 #include <boost/type_index.hpp>
+#include <iostream>
 
 using namespace std;
 using boost::typeindex::type_id_with_cvr;  
@@ -243,5 +243,3 @@ int main()
     PrintType(ptr);
 }
 #endif
-
-
